@@ -1,14 +1,13 @@
-import numpy as np
-class LogisticRegression:
-    def __init__(self, learning_rate = 0.01, epochs = 100):
-        self.learning_rate =  learning_rate 
-        self.epochs = epochs 
+import numpy as np 
+
+
+class LinearRegression:
+    def __init__(self, learning_rate = 0.01, epochs = 1000):
         self.weights = None 
         self.bias = None 
+        self.learning_rate = learning_rate
+        self.epochs = epochs
 
-    def sigmoid(self, z):
-        return 1/ (1 + np.exp(-z))
-    
     def fit(self, X, y):
 
         nSamples, nFeatures = X.shape
@@ -29,3 +28,4 @@ class LogisticRegression:
 
     def predict(self, X):
         return np.dot(X, self.weights) + self.bias
+       
